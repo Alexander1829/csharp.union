@@ -1,0 +1,11 @@
+﻿using System.Text.Json.Serialization;
+
+namespace AppSample.Union.HistoryEvents.HistoryModule.Domain.Models.EventData.Radius;
+
+public record struct DomainUsersResponseEventData(
+	[property: JsonPropertyName("s")] bool Success,
+	[property: JsonPropertyName("d"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] bool? IsDisabled) : IHistoryEventData
+{
+	[JsonIgnore]
+	public HistoryEventType EventType => HistoryEventType.DomainUsersResponse;
+}
