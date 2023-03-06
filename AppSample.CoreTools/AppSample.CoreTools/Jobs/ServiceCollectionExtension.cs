@@ -7,7 +7,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddAllJobs(this IServiceCollection services)
     {
-        foreach (Type type in TypesHelper.GetAllDescendantsInBeelineAssemblies<BaseJob>())
+        foreach (Type type in TypesHelper.GetAllDescendantsInAppSampleAssemblies<BaseJob>())
         {
             services.AddSingleton(type);
         }

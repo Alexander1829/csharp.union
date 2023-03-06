@@ -8,7 +8,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection ConfigureAllSettings(this IServiceCollection services, IConfiguration configuration)
     {
-        foreach (var type in TypesHelper.GetAllDescendantsInBeelineAssemblies<BaseSettings>())
+        foreach (var type in TypesHelper.GetAllDescendantsInAppSampleAssemblies<BaseSettings>())
         {
             if (Activator.CreateInstance(type) is BaseSettings configurationInstance)
             {
